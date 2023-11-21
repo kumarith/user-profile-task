@@ -6,14 +6,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
 
 
-
 const Info = ({ userInfo }) => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [localUserInfo, setLocalUserInfo] = useState(userInfo);
     const [error, setError] = useState('');
 
     
-
     const parseDate = (text) => {
         const parts = text.split('-');
         const year = parseInt(parts[0]);
@@ -74,12 +72,11 @@ const Info = ({ userInfo }) => {
     }
 
     const handleBirthDayChange = (date) => {
-        //alert("handleBirthDayChange"+date);
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are zero-based
         const day = String(date.getDate()).padStart(2, '0');
         
-        //alert(`${year}-${month}-${day}`);
+       
         let _localuserInfo = localUserInfo;
         _localuserInfo.birthday = `${year}-${month}-${day}`;
         setLocalUserInfo(_localuserInfo);
@@ -98,7 +95,7 @@ const Info = ({ userInfo }) => {
                             {error && <Alert className="d-flex align-items-center"  style={{ height: '30px' }} variant="danger">{error}</Alert>}
                         </Col>
                         <Col md={2} >
-                            <Button className="button" variant={isEditMode ? "primary" : "secondary"} size="sm" onClick={handleClick} >{isEditMode ? "Done" : "Edit info"}</Button>
+                            <Button style={{textDecoration: 'none'}} variant={"link"} size="sm" onClick={handleClick} >{isEditMode ? "Done" : "Edit info"}</Button>
                         </Col>
                     </Row>
                     <Row>
@@ -148,9 +145,7 @@ const Info = ({ userInfo }) => {
                                 <p>{localUserInfo.birthday}</p>
                             ) : (
                                 <DatePicker  name = "birthday"  value={parseDate(localUserInfo.birthday)}  selected={parseDate(localUserInfo.birthday)} onChange={handleBirthDayChange}  dateFormat="yyyy-MM-dd" className="form-control" />
-
                             )}
-
                         </Col>
                     </Row>
                 </Card.Body>

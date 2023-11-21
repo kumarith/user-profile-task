@@ -3,7 +3,8 @@ import { Button, Card, Row, Col, Modal } from 'react-bootstrap';
 import '../App.css';
 import Badge from 'react-bootstrap/Badge';
 
-const Interests = ({ userIntersts }) => {
+
+const Interests = ({ userIntersts, onAddTag }) => {
     console.log("userIntersts" + userIntersts);
     const [localUserIntersts, setlLocalUserIntersts] = useState(userIntersts);
     const [showModal, setShowModal] = useState(false);
@@ -55,6 +56,7 @@ const Interests = ({ userIntersts }) => {
                                     >
                                         {interest}
                                     </Badge>
+                                
                             ))}
 
                             <Badge

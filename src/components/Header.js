@@ -27,24 +27,29 @@ const Header = () => {
     setShowDeleteModal(false);
   }
 
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+    setShowDeleteModal(false);
+  };
+
   return (
     <div>
       <Card className='card-profileheader'>
         <Card.Body>
-          <Row className="align-items-center" style={{ justifyContent: 'center' }}>
-            <Col md={3} >
-              <Image src={(image !== null) ? image : profile} alt="profile" roundedCircle={true} style={{ width: "35%", height: "35%", float: "left", alignContent: "left" }} />
+          <Row className="align-items-center" style={{ justifyContent: 'center'}}>
+            <Col  md={3} xs={12} >
+              <Image  className = "upload-image" src={(image !== null) ? image : profile} alt="profile" roundedCircle={true}  />
             </Col>
-            <Col md={3} className="text-left">
-              <h6>Profile Name</h6>
-              <p>Profile Text goes here.</p>
+            <Col md={4} xs={12} className="text-left">
+              <h5>Profile Name</h5>
+              <p style={{color:'grey'}}>Update your photo and personal information</p>
             </Col>
-            <Col className="text-right" md={6}>
-              <div className="text-right">
+
+            <Col className="text-end" md={5} xs={12}>
               <input ref={fileInputRef} style={{ display: "none" }} type="file" accept='/image/' variant="primary" size="sm" onChange={handleChange} />
-              <Button className="button" variant="primary" size="sm" onClick={() => { fileInputRef.current.click(); }} >Upload picture</Button>
-              <Button className="button" variant="secondary" size="sm" onClick={() => { setShowDeleteModal(true) }} >Delete picture</Button>
-              </div>
+              <Button   variant="primary" size="sm" onClick= {handleButtonClick} >Upload picture</Button>
+              { (image !== null) && (
+                <Button  variant="light" style={{marginLeft:"10px"}} size="sm" onClick={() => { setShowDeleteModal(true) }} >Delete picture</Button>)}
             </Col>
           </Row>
         </Card.Body>
@@ -53,21 +58,23 @@ const Header = () => {
       { /** Model of delete warning*/}
       <Modal className="square-modal" show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
        <Modal.Header style={{ textAlign: 'center' }} >
-       <FaExclamationCircle style={{ fontSize: '24px', color: 'red' }} />
+       <FaExclamationCircle style={{ fontSize: '24px', color: 'red', justifyContent:'center' }} />
         </Modal.Header>
         <Modal.Body>
-        
-          Are you sure you want to delete?</Modal.Body>
+          Delete profile photo?
+          <p style={{color:'grey', whiteSpace: 'nowrap'}}>You are about to delete your prfile photo. would you like to proceed?</p>
+          </Modal.Body>
         <Modal.Footer>
           <Button variant="light" onClick={() => setShowDeleteModal(false)}>
-            Cancel
+            No, keep it
           </Button>
           <Button variant="danger" onClick={handleDelete}>
-            Delete
+          Yes, delete it
           </Button>
         </Modal.Footer>
       </Modal>
     </div>
+
   );
 }
 

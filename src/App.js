@@ -31,7 +31,7 @@ const UserProfile = ({ props }) => {
     // Function to fetch data from the API
     const fetchData = async () => {
       try {
-        const response = await fetch('/users/'+uid);
+        const response = await fetch('/users/'+uid); // Replace with your API endpoint
         const result = await response.json();
       
         setUserProfile(result);
@@ -102,6 +102,9 @@ const Home = ({ props }) => {
 }
 
 
+
+
+// Main App
 const App = () => {
   return (
     <Router>
@@ -114,5 +117,8 @@ const App = () => {
 
   );
 };
+
+
+
 
 export default App;
