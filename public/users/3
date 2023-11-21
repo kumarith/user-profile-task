@@ -1,0 +1,14 @@
+ {
+    "firstName": "Kumari",
+    "lastName": "T",
+    "email": "KumariT@hessel-greenfelder.dk",
+    "phoneNumber": "+4510203040",
+    "profileImage": null,
+    "birthday": "1993-10-09",
+    "interests": [
+        "Cookgin",
+        "Beer brewing",
+        "Bicycling",
+        "Cricket"
+    ]
+}

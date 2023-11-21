@@ -1,32 +1,49 @@
-.card-containerprofile {
-  position: relative;
-  height: 200px !important;
-  
+.card-profileheader {
+  height: 150px !important;
+  border: 1;
 }
+
 .card-containerpersonal {
-  position: relative;
   height: 400px !important;
-  
 }
 
 .card-body {
-  margin-left: 500px;
-  position: relative;
   padding-top: 10px;
 }
 
 .card-personal {
-  margin-top: 30px;
-  margin-left: 100px;
+  margin-left: 0px;
+  margin-bottom: 50px;
 }
-
 
 .button-container {
   position: absolute;
+  margin-top: 50px;
+  right: 10px;
+  width: 180px;
+  height: 40px;
+  float: left;
+}
+
+.button-header {
+  position: absolute;
   bottom: 80px;
   right: 10px;
-  width : 180px;
-  height : 40px;
+  width: 250px;
+  height: 40px;
   float: left;
-  
+}
+
+/* media queries */
+
+@media (max-width: 767px) {
+  .heading {
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .heading {
+    text-align: left;
+  }
 }
