@@ -1,0 +1,13 @@
+ {
+    "firstName": "Kumari",
+    "lastName": "T",
+    "email": "Kuamri@hesse.dk",
+    "phoneNumber": "+45434344",
+    "profileImage": null,
+    "birthday": "1993-12-09",
+    "interests": [
+        "Ps5",
+        "Tennis",
+        "Games"
+    ]
+}
