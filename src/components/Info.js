@@ -16,7 +16,7 @@ const Info = ({ userInfo }) => {
         const parts = text.split('-');
         const year = parseInt(parts[0]);
         const day = parseInt(parts[1]);
-        const month = parseInt(parts[2]) - 1; // Months are zero-based in JavaScript
+        const month = parseInt(parts[2]) - 1; 
         return new Date(year, month, day);
       };
 
@@ -75,7 +75,6 @@ const Info = ({ userInfo }) => {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are zero-based
         const day = String(date.getDate()).padStart(2, '0');
-        
        
         let _localuserInfo = localUserInfo;
         _localuserInfo.birthday = `${year}-${month}-${day}`;
@@ -88,16 +87,20 @@ const Info = ({ userInfo }) => {
             <Card className=' d-flex card-containerpersonal' >
                 <Card.Body className='card-personal'>
                     <Row>
-                        <Col md={3}>
+                        <Col md={6}>
                             <h5 style={{ marginBottom: '30px' }}>Personal Info</h5>
                         </Col>
-                        <Col md={7}>
-                            {error && <Alert className="d-flex align-items-center"  style={{ height: '30px' }} variant="danger">{error}</Alert>}
-                        </Col>
-                        <Col md={2} >
+                       
+                        <Col md={6} className="text-end">
                             <Button style={{textDecoration: 'none'}} variant={"link"} size="sm" onClick={handleClick} >{isEditMode ? "Done" : "Edit info"}</Button>
                         </Col>
                     </Row>
+                    <Row md={12} style={{ height: '30px' }}  className="d-flex justify-content-center">
+                        <Col>
+                            {error && <Alert className="d-flex align-items-center"  style={{ height: '20px' }} variant="danger">{error}</Alert>}
+                        </Col>  
+                    </Row>
+
                     <Row>
                         <Col xs={12} md={3} className="order-md-2">
                             <p><b>First name *</b></p>
@@ -146,6 +149,7 @@ const Info = ({ userInfo }) => {
                             ) : (
                                 <DatePicker  name = "birthday"  value={parseDate(localUserInfo.birthday)}  selected={parseDate(localUserInfo.birthday)} onChange={handleBirthDayChange}  dateFormat="yyyy-MM-dd" className="form-control" />
                             )}
+
                         </Col>
                     </Row>
                 </Card.Body>

@@ -51,6 +51,9 @@ const Header = () => {
               { (image !== null) && (
                 <Button  variant="light" style={{marginLeft:"10px"}} size="sm" onClick={() => { setShowDeleteModal(true) }} >Delete picture</Button>)}
             </Col>
+          
+
+       
           </Row>
         </Card.Body>
       </Card>
@@ -62,7 +65,7 @@ const Header = () => {
         </Modal.Header>
         <Modal.Body>
           Delete profile photo?
-          <p style={{color:'grey', whiteSpace: 'nowrap'}}>You are about to delete your prfile photo. would you like to proceed?</p>
+          <p style={{color:'grey'}}>You are about to delete your prfile photo. would you like to proceed?</p>
           </Modal.Body>
         <Modal.Footer>
           <Button variant="light" onClick={() => setShowDeleteModal(false)}>

@@ -4,8 +4,7 @@ import '../App.css';
 import Badge from 'react-bootstrap/Badge';
 
 
-const Interests = ({ userIntersts, onAddTag }) => {
-    console.log("userIntersts" + userIntersts);
+const Interests = ({ userIntersts }) => {
     const [localUserIntersts, setlLocalUserIntersts] = useState(userIntersts);
     const [showModal, setShowModal] = useState(false);
     const [newInterst, setNewInterest] = useState('');
@@ -35,7 +34,7 @@ const Interests = ({ userIntersts, onAddTag }) => {
 
     return (
         <div>
-            <Card className=' d-flex card-containerpersonal' >
+            <Card className=' d-flex card-containerinterests' >
                 <Card.Body className='card-personal'>
                     <Row>
                         <Col md={8}>
@@ -56,7 +55,6 @@ const Interests = ({ userIntersts, onAddTag }) => {
                                     >
                                         {interest}
                                     </Badge>
-                                
                             ))}
 
                             <Badge
